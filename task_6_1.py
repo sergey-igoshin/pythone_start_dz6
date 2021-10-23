@@ -11,14 +11,15 @@
 завершать скрипт.
 """
 from time import sleep
+from colorama import Fore
 
 
 class TrafficLight:
     def __init__(self):
         self.__color = {
-            0: 'Красный',
-            1: 'Желтый',
-            2: 'Зеленый'
+            0: ['Красный', Fore.RED],
+            1: ['Желтый', Fore.YELLOW],
+            2: ['Зеленый', Fore.GREEN]
         }
 
     def running(self, *args):
@@ -27,10 +28,10 @@ class TrafficLight:
         for key, val in self.__color.items():
             try:
                 if args[key]:
-                    print(val)
+                    print(val[1], val[0])
                     sleep(args[key])
             except IndexError as e:
-                print(f'Ошибка {e}')
+                print(Fore.RESET, f'Ошибка {e}')
 
 
 time = TrafficLight()
