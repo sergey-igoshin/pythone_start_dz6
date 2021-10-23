@@ -9,7 +9,7 @@ turn(direction), которые должны сообщать, что машин
 Создайте экземпляры классов, передайте значения атрибутов. Выполните доступ к атрибутам, выведите результат. Вызовите
 методы и покажите результат.
 """
-
+import random
 
 class Car:
 
@@ -36,9 +36,9 @@ class Car:
 
     def car_is_police(self):
         if self.is_police:
-            return 'нарушений нет'
+            return 'нет нарушений ПДД'
         else:
-            return 'есть нарушения'
+            return 'есть нарушения ПДД'
 
 
 class TownCar(Car):
@@ -69,12 +69,12 @@ town = TownCar(60, 'красный', 'Toyota', False)
 sport = SportCar(150, 'черный', 'BMW', False)
 work = WorkCar(80, 'белый', 'VW', True)
 police = PoliceCar(120, 'белый', 'Mercedes', True)
-
-print(town.car_name(), town.car_color(), town.go(), town.show_speed(), town.turn("лево"), town.turn("право"),
+car_turn = ['лево', 'право']
+print(town.car_name(), town.car_color(), town.go(), town.show_speed(), town.turn(random.choice(car_turn)),
       town.stop(), town.car_is_police())
-print(sport.car_name(), sport.car_color(), sport.go(), sport.show_speed(), sport.turn('право'), sport.turn('право'),
+print(sport.car_name(), sport.car_color(), sport.go(), sport.show_speed(), sport.turn(random.choice(car_turn)),
       sport.stop(), sport.car_is_police())
-print(work.car_name(), work.car_color(), work.go(), work.show_speed(), work.turn('право'), work.stop(),
-      work.car_is_police())
-print(police.car_name(), police.car_color(), police.go(), police.show_speed(), police.turn('лево'), police.stop(),
-      police.car_is_police())
+print(work.car_name(), work.car_color(), work.go(), work.show_speed(), work.turn(random.choice(car_turn)),
+      work.stop(), work.car_is_police())
+print(police.car_name(), police.car_color(), police.go(), police.show_speed(), police.turn(random.choice(car_turn)),
+      police.stop(), police.car_is_police())
